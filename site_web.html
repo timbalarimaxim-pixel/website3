@@ -1,0 +1,506 @@
+<!DOCTYPE html>
+<html lang="ro">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Prezentare Extinsă - Decodificarea și Portofoliul Algoritmic</title>
+<style>
+*{
+    margin:0;
+    padding:0;
+    box-sizing:border-box;
+    font-family:Arial, sans-serif;
+}
+html{\n    scroll-behavior:smooth;
+}
+body{
+    background:linear-gradient(135deg,#0f172a,#1e293b);
+    color:white;
+    line-height:1.7;
+}
+/* HEADER */
+header{
+    height:100vh;
+    display:flex;
+    flex-direction:column;
+    justify-content:center;
+    align-items:center;
+    text-align:center;
+    padding:20px;
+    background:
+    linear-gradient(rgba(0,0,0,0.6),rgba(0,0,0,0.7)),
+    url('https://images.unsplash.com/photo-1516321318423-f06f85e504b3?q=80&w=1600&auto=format&fit=crop');
+
+    background-size:cover;
+    background-position:center;
+}
+header h1{
+    font-size:75px;
+    color:#38bdf8;
+    margin-bottom:20px;
+    text-shadow:2px 2px 10px black;
+}
+header p{
+    font-size:24px;
+    max-width:850px;
+    color:#e2e8f0;
+}
+/* NAVBAR */
+nav{
+    position:sticky;
+    top:0;
+    background:#020617;
+    padding:18px;
+    text-align:center;
+    z-index:1000;
+    box-shadow:0 2px 10px rgba(0,0,0,0.5);
+}
+nav a{
+    color:white;
+    text-decoration:none;
+    margin:0 20px;
+    font-size:18px;
+    font-weight:bold;
+    transition:0.3s;
+}
+nav a:hover{
+    color:#38bdf8;
+}
+/* CONTENT */
+.container{
+    width:90%;
+    max-width:1200px;
+    margin:auto;
+    padding:70px 0;
+}
+section{
+    margin-bottom:80px;
+}
+.card{
+    background:#1e293b;
+    padding:40px;
+    border-radius:20px;
+    box-shadow:0 5px 20px rgba(0,0,0,0.4);
+    transition:0.4s;
+    margin-bottom:30px;
+}
+.card:hover{
+    transform:translateY(-6px);
+    background:#334155;
+}
+h2{
+    font-size:40px;
+    margin-bottom:20px;
+    color:#38bdf8;
+}
+h3 {
+    font-size:24px;
+    color:#38bdf8;
+    margin-top:20px;
+    margin-bottom:10px;
+}
+p{
+    font-size:20px;
+    color:#e2e8f0;
+}
+ul{
+    margin-top:20px;
+    padding-left:25px;
+}
+ul li{
+    margin-bottom:12px;
+    font-size:20px;
+}
+/* EXAMPLES */
+.example{
+    background:#0f172a;
+    padding:20px;
+    margin-top:25px;
+    border-left:6px solid #38bdf8;
+    border-radius:10px;
+    font-size:20px;
+    font-family:monospace;
+    color:#93c5fd;
+}
+/* GRID */
+.grid{
+    display:grid;
+    grid-template-columns:repeat(auto-fit,minmax(250px,1fr));
+    gap:30px;
+    margin-top:35px;
+}
+.box{
+    background:#0f172a;
+    padding:30px;
+    border-radius:15px;
+    transition:0.3s;
+}
+.box:hover{
+    background:#1d4ed8;
+    transform:scale(1.03);
+}
+.box h3{
+    color:#38bdf8;
+    margin-bottom:15px;
+    font-size:26px;
+}
+/* DETALII ALGORITMICE CARD */
+.problem-detail-card {
+    background: #1e293b;
+    border: 1px solid #334155;
+    padding: 25px;
+    border-radius: 12px;
+    margin-top: 20px;
+}
+.badge-complexity {
+    display: inline-block;
+    background: #0369a1;
+    color: #e0f2fe;
+    padding: 4px 12px;
+    border-radius: 6px;
+    font-size: 14px;
+    font-weight: bold;
+    font-family: monospace;
+    margin-bottom: 10px;
+}
+/* FOOTER */
+footer{
+    background:#020617;
+    text-align:center;
+    padding:30px;
+    color:#94a3b8;
+    font-size:18px;
+}
+/* RESPONSIVE */
+@media(max-width:768px){
+
+    header h1{
+        font-size:50px;
+    }
+
+    header p{
+        font-size:18px;
+    }
+
+    nav a{
+        display:block;
+        margin:10px 0;
+    }
+
+    h2{
+        font-size:32px;
+    }
+
+    p{
+        font-size:18px;
+    }
+}
+
+</style>
+</head>
+
+<body>
+
+<header>
+
+    <h1>DECODIFICAREA</h1>
+
+    <p>
+        Procesul prin care informațiile codificate sunt transformate
+        în mesaje ușor de înțeles.
+    </p>
+
+</header>
+
+<nav>
+    <a href="#definitie">Definiție</a>
+    <a href="#tipuri">Tipuri</a>
+    <a href="#exemple">Exemple</a>
+    <a href="#importanta">Importanță</a>
+    <a href="#teorie-avansata">Analiză Algoritmică</a>
+    <a href="#probleme">Portofoliu Probleme</a>
+    <a href="#concluzie">Concluzie</a>
+</nav>
+
+<div class="container">
+
+    <section id="definitie">
+
+        <div class="card">
+
+            <h2>Ce este decodificarea?</h2>
+
+            <p>
+                Decodificarea reprezintă procesul prin care un mesaj
+                criptat sau codificat este transformat în forma sa
+                originală pentru a putea fi înțeles.
+            </p>
+
+            <p style="margin-top:20px;">
+                Acest proces este folosit în informatică,
+                telecomunicații, internet, televiziune,
+                aplicații mobile și securitate cibernetică.
+            </p>
+
+            <div class="example">
+
+                Mesaj codificat: IFMMP <br><br>
+                Mesaj decodificat: HELLO
+
+            </div>
+
+        </div>
+
+    </section>
+
+    <section id="tipuri">
+
+        <h2>Tipuri de decodificare</h2>
+
+        <div class="grid">
+
+            <div class="box">
+
+                <h3>Text</h3>
+
+                <p>
+                    Transformarea unui mesaj criptat
+                    într-un text clar.
+                </p>
+
+            </div>
+
+            <div class="box">
+
+                <h3>Audio</h3>
+
+                <p>
+                    Conversia datelor digitale
+                    în sunete și muzică.
+                </p>
+
+            </div>
+
+            <div class="box">
+
+                <h3>Video</h3>
+
+                <p>
+                    Utilizată pentru redarea
+                    fișierelor video și filmelor.
+                </p>
+
+            </div>
+
+            <div class="box">
+
+                <h3>QR Code</h3>
+
+                <p>
+                    Interpretarea codurilor QR
+                    și accesarea informațiilor.
+                </p>
+
+            </div>
+
+        </div>
+
+    </section>
+
+    <section id="exemple">
+
+        <div class="card">
+
+            <h2>Exemple de decodificare</h2>
+
+            <p>
+                Mai jos sunt câteva exemple simple
+                folosite în viața reală.
+            </p>
+
+            <div class="example">
+
+                Exemplul 1 <br><br>
+
+                Mesaj codificat: Uijt jt b tfdsfu nfttbhf <br>
+                Mesaj decodificat: This is a secret message
+
+            </div>
+
+            <div class="example">
+
+                Exemplul 2 <br><br>
+
+                Cod binar: 01001000 01101001 <br>
+                Decodificat: HI
+
+            </div>
+
+            <div class="example">
+
+                Exemplul 3 <br><br>
+
+                Cod Morse: ... --- ... <br>
+                Decodificat: SOS
+
+            </div>
+
+            <div class="example">
+
+                Exemplul 4 <br><br>
+
+                QR Code → Deschide automat un site web.
+
+            </div>
+
+        </div>
+
+    </section>
+
+    <section id="importanta">
+
+        <div class="card">
+
+            <h2>Importanța decodificării</h2>
+
+            <p>
+                Decodificarea este esențială pentru funcționarea
+                tehnologiilor moderne.
+            </p>
+
+            <ul>
+
+                <li>Permite citirea datelor digitale.</li>
+
+                <li>Face posibilă comunicarea online.</li>
+
+                <li>Ajută la securizarea informațiilor.</li>
+
+                <li>Permite redarea fișierelor audio și video.</li>
+
+                <li>Este utilizată în criptografie și internet.</li>
+
+            </ul>
+
+            <div class="example">
+
+                Fără decodificare, internetul și aplicațiile moderne
+                nu ar putea funcționa.
+
+            </div>
+
+        </div>
+
+    </section>
+
+    <section id="teorie-avansata">
+        <div class="card">
+            <h2>Abordarea Algoritmică a Decodificării</h2>
+            <p>
+                Din punct de vedere computational, decodificarea se bazează pe funcții matematice inverse și mapări indexate directe. Eficiența procesului determină performanța transmisiilor de date în timp real.
+            </p>
+            <h3>1. Decodificarea prin Mapare Directă (Look-up Table)</h3>
+            <p>
+                Utilizează un spațiu de memorie prealocat în care fiecărui simbol codificat îi corespunde direct indexul caracterului original. Această metodă oferă o complexitate temporală optimă de <strong>O(1)</strong> (timp constant), fiind ideală pentru algoritmi precum decodificarea Base64 sau transformările de matrice de caractere.
+            </p>
+            <h3>2. Decodificarea pe bază de Arbori Binari (Algoritmul Huffman)</h3>
+            <p>
+                În procesul de decompresie a fișierelor, decodificarea parcurge un arbore binar de la rădăcină spre frunze pentru fiecare bit citit din flux (0 reprezintă ramura stângă, iar 1 ramura dreaptă). Când se atinge o frunză, caracterul este decodificat, repornind procesul pentru restul șirului binar.
+            </p>
+        </div>
+    </section>
+
+    <section id="probleme">
+        <div class="card">
+            <h2>Portofoliu Extins de Probleme Rezonate</h2>
+            <p>Mai jos este prezentată analiza detaliată a tuturor algoritmilor dezvoltați pe parcursul stagiului de practică, evidențiind complexitatea computațională și aplicabilitatea lor practică.</p>
+
+            <div class="problem-detail-card">
+                <div class="badge-complexity">Complexitate: O(N²)</div>
+                <h3><b>M3.20</b> - Generarea dreptelor posibile determinate de puncte în plan</h3>
+                <p>Algoritmul analizează combinatoric toate perechile unice de puncte luate din setul de date primit, eliminând duplicatele coliniare. Este esențial în procesarea imaginilor și în recunoașterea formelor geometrice.</p>
+            </div>
+
+            <div class="problem-detail-card">
+                <div class="badge-complexity">Complexitate: O(N!)</div>
+                <h3><b>M3.22</b> - Generarea permutărilor cu secvență consecutivă fixată</h3>
+                <p>Utilizează tehnica Backtracking pentru a construi spațiul stărilor combinatorice, impunând o restricție structurală: un grup de elemente trebuie să rămână adiacent în cadrul vectorului final generat.</p>
+            </div>
+
+            <div class="problem-detail-card">
+                <div class="badge-complexity">Complexitate: O(2^N)</div>
+                <h3><b>M4.8</b> - Descompunerea numărului N în suma a P termeni</h3>
+                <p>Rezolvată prin tehnica Divide et Impera adaptată recursiv sau partajarea ansamblului. Distribuie o valoare întreagă în sub-componente strict delimitate, aplicabilă în criptografie și alocarea resurselor hardware.</p>
+            </div>
+
+            <div class="problem-detail-card">
+                <div class="badge-complexity">Complexitate: O(N log N)</div>
+                <h3><b>M5.11</b> - Determinarea a două puncte cu distanța minimă</h3>
+                <p>Evită abordarea naivă de tip forță brută O(N²) utilizând o strategie Divide et Impera: sortează punctele după coordonate și divide planul în fâșii verticale, reducând drastic numărul de comparații necesare.</p>
+            </div>
+
+            <div class="problem-detail-card">
+                <div class="badge-complexity">Complexitate: O(N * L)</div>
+                <h3><b>M6.4</b> - Alegerea numărului maxim de cărți pentru grosimea L</h3>
+                <p>Problemă clasică rezolvată eficient prin Programare Dinamică. Se folosește un tablou de stări memoizate pentru a stabili sub-structura optimă și a evita reevaluarea redundantă a subseturilor de cărți.</p>
+            </div>
+
+            <div class="problem-detail-card">
+                <div class="badge-complexity">Complexitate: O(N)</div>
+                <h3><b>M6.25</b> - Determinarea sumei maxime într-un arbore</h3>
+                <p>Implementează programarea dinamică direct pe structura de graf/arbore ierarhizat. Calculează recursiv pentru fiecare nod două stări distincte (nodul inclus sau exclus din sumă), parcurgând graful într-o singură trecere.</p>
+            </div>
+
+            <div class="problem-detail-card">
+                <div class="badge-complexity">Arhitectură: POO (Encapsulation, Sort)</div>
+                <h3><b>POO6</b> - Sistem de admitere a candidaților</h3>
+                <p>O aplicație completă orientată pe obiecte care modelează procesul de admitere. Implementează clase specifice pentru gestionarea datelor personale, calcul automat de medii ponderate, sortare după criterii multiple și reevaluarea stărilor în urma contestațiilor.</p>
+            </div>
+
+            <div class="problem-detail-card">
+                <div class="badge-complexity">Arhitectură: POO Modular Design</div>
+                <h3><b>POO21</b> - Gestiunea complexă a unui supermarket</h3>
+                <p>Sistem modular conceput pentru managementul stocurilor de produse. Încorporează metode dedicate pentru inserarea elementelor în inventar, căutări optimizate pe bază de cod, ștergerea automată a bunurilor expirate și calculul prețului total de vânzare.</p>
+            </div>
+
+        </div>
+    </section>
+
+    <section id="concluzie">
+
+        <div class="card">
+
+            <h2>Concluzie</h2>
+
+            <p>
+                Decodificarea joacă un rol foarte important
+                în transmiterea și interpretarea informațiilor.
+            </p>
+
+            <p style="margin-top:20px;">
+                Ea transformă datele criptate în informații
+                utile și accesibile oamenilor și dispozitivelor.
+            </p>
+
+            <div class="example">
+
+                Decodificarea = cheia înțelegerii informațiilor digitale.
+
+            </div>
+
+        </div>
+
+    </section>
+
+</div>
+
+<footer>
+
+    © 2026 | Prezentare realizată în HTML + CSS
+
+</footer>
+
+</body>
+</html>
+
+```

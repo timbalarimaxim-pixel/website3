@@ -1,0 +1,881 @@
+<!DOCTYPE html>
+<html lang="ro">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Raportul Stagiului de Practică - Portofoliu Algoritmic Complet Unificat</title>
+    <style>
+        :root {
+            --primary-color: #0f172a;
+            --secondary-color: #0284c7;
+            --accent-color: #f8fafc;
+            --text-main: #334155;
+            --text-dark: #0f172a;
+            --border-color: #cbd5e1;
+            --code-bg: #0f172a;
+        }
+
+        body {
+            font-family: 'Times New Roman', Times, serif;
+            font-size: 14pt;
+            line-height: 1.6;
+            color: var(--text-main);
+            background-color: #f1f5f9;
+            margin: 0;
+            padding: 0;
+        }
+
+        .container {
+            max-width: 950px;
+            margin: 40px auto;
+            background: #ffffff;
+            padding: 60px 80px;
+            box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.05);
+            border: 1px solid #e2e8f0;
+        }
+
+        header {
+            text-align: center;
+            margin-bottom: 50px;
+            border-bottom: 2px solid var(--primary-color);
+            padding-bottom: 30px;
+        }
+
+        header h1 {
+            font-size: 26pt;
+            color: var(--text-dark);
+            margin: 0 0 10px 0;
+            text-transform: uppercase;
+            font-weight: bold;
+        }
+
+        header p {
+            font-size: 14pt;
+            font-style: italic;
+            color: #64748b;
+            margin: 0;
+        }
+
+        h2 {
+            font-size: 16pt;
+            color: var(--text-dark);
+            margin-top: 40px;
+            margin-bottom: 20px;
+            border-bottom: 1px solid var(--border-color);
+            padding-bottom: 5px;
+            text-transform: uppercase;
+            page-break-before: always;
+        }
+
+        h2:first-of-type {
+            page-break-before: avoid;
+        }
+
+        h3 {
+            font-size: 14pt;
+            color: var(--text-dark);
+            margin-top: 25px;
+            margin-bottom: 10px;
+            font-weight: bold;
+        }
+
+        .cuprins-box {
+            border: 1px solid var(--border-color);
+            padding: 25px;
+            background-color: var(--accent-color);
+            margin-bottom: 40px;
+        }
+
+        .cuprins-box h3 {
+            margin-top: 0;
+            text-align: center;
+            text-transform: uppercase;
+        }
+
+        .cuprins-box ul {
+            list-style: none;
+            padding: 0;
+            margin: 0;
+        }
+
+        .cuprins-box li {
+            display: flex;
+            justify-content: space-between;
+            margin-bottom: 10px;
+            border-bottom: 1px dotted #94a3b8;
+        }
+
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            margin: 25px 0;
+            font-size: 12pt;
+        }
+
+        th, td {
+            border: 1px solid #94a3b8;
+            padding: 12px 14px;
+            text-align: left;
+            vertical-align: middle;
+        }
+
+        th {
+            background-color: #f1f5f9;
+            color: var(--text-dark);
+            font-weight: bold;
+            text-transform: uppercase;
+            font-size: 11pt;
+        }
+
+        p {
+            text-align: justify;
+            margin-bottom: 15px;
+            text-indent: 15mm;
+        }
+        
+        p.no-indent {
+            text-indent: 0;
+        }
+
+        ul {
+            margin-bottom: 20px;
+            padding-left: 30px;
+        }
+
+        li {
+            margin-bottom: 8px;
+            text-align: justify;
+        }
+
+        .problem-card {
+            background-color: #f8fafc;
+            border: 1px solid #e2e8f0;
+            border-radius: 8px;
+            padding: 25px;
+            margin-bottom: 35px;
+        }
+
+        .problem-title {
+            font-size: 13pt;
+            font-weight: bold;
+            color: var(--secondary-color);
+            margin-bottom: 10px;
+            border-bottom: 2px solid #e2e8f0;
+            padding-bottom: 5px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .badge-complexity {
+            font-family: monospace;
+            font-size: 11pt;
+            background-color: #e0f2fe;
+            color: #0369a1;
+            padding: 2px 8px;
+            border-radius: 4px;
+        }
+
+        .problem-screenshot {
+            background-color: #111827;
+            border-radius: 6px;
+            overflow: hidden;
+            border: 1px solid #334155;
+            margin: 15px 0;
+            box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+        }
+
+        .screenshot-header {
+            background-color: #0f172a;
+            padding: 8px 15px;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            border-bottom: 1px solid #2d3748;
+        }
+
+        .screenshot-dots {
+            display: flex;
+            gap: 5px;
+        }
+
+        .s-dot {
+            width: 10px;
+            height: 10px;
+            border-radius: 50%;
+        }
+        .sd-1 { background-color: #ef4444; }
+        .sd-2 { background-color: #f59e0b; }
+        .sd-3 { background-color: #10b981; }
+
+        .screenshot-title {
+            color: #94a3b8;
+            font-family: monospace;
+            font-size: 11px;
+        }
+
+        .screenshot-body {
+            padding: 15px;
+            font-family: 'Consolas', 'Courier New', monospace;
+            font-size: 11pt;
+            color: #e2e8f0;
+            line-height: 1.4;
+            white-space: pre;
+            overflow-x: auto;
+        }
+
+        .keyword { color: #f472b6; font-weight: bold; }
+        .type { color: #38bdf8; }
+        .number { color: #fb923c; }
+        .comment { color: #64748b; font-style: italic; }
+
+        .output-box {
+            background-color: #0f172a;
+            color: #38bdf8;
+            padding: 15px;
+            font-family: monospace;
+            font-size: 11pt;
+            border-radius: 4px;
+            margin: 15px 0;
+        }
+
+        .diagram-wrapper {
+            background-color: #f8fafc;
+            border: 2px dashed #cbd5e1;
+            padding: 25px;
+            border-radius: 8px;
+            margin: 25px 0;
+            text-align: center;
+        }
+
+        .diagram-title {
+            font-family: sans-serif;
+            font-size: 11pt;
+            font-weight: bold;
+            color: #475569;
+            margin-bottom: 20px;
+            text-transform: uppercase;
+        }
+
+        .diagram-container {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            gap: 15px;
+            font-family: sans-serif;
+            font-size: 11pt;
+        }
+
+        .diagram-box {
+            background-color: #ffffff;
+            border: 2px solid #0284c7;
+            color: #0f172a;
+            padding: 12px 24px;
+            border-radius: 4px;
+            width: 320px;
+            box-shadow: 0 2px 4px rgba(0,0,0,0.05);
+            font-weight: bold;
+        }
+
+        .diagram-arrow {
+            color: #0284c7;
+            font-size: 18pt;
+            line-height: 1;
+        }
+
+        .diagram-split {
+            display: flex;
+            gap: 30px;
+            justify-content: center;
+            width: 100%;
+        }
+
+        .text-example-box {
+            background-color: #f1f5f9;
+            border-left: 4px solid #0284c7;
+            padding: 15px;
+            margin: 15px 0;
+            font-family: monospace;
+            font-size: 12pt;
+            color: #0f172a;
+        }
+
+        .signature-container {
+            margin-top: 60px;
+            page-break-inside: avoid;
+        }
+
+        .signature-row {
+            display: flex;
+            justify-content: space-between;
+            margin-top: 40px;
+        }
+
+        .signature-col {
+            width: 45%;
+        }
+
+        @media print {
+            body { background-color: #ffffff; font-size: 12pt; }
+            .container { box-shadow: none; border: none; padding: 0; margin: 0; width: 100%; }
+            .screenshot-body, pre { color: #000 !important; background-color: #fff !important; }
+            .problem-screenshot, .problem-card { border: 1px solid #000; background-color: #fff; }
+            .screenshot-header { display: none; }
+            .diagram-wrapper { border: 1px solid #000; background: #fff; }
+        }
+    </style>
+</head>
+<body>
+
+<div class="container">
+    
+    <header>
+        <h1>Raportul Stagiului de Practică</h1>
+        <p>Gestiunea Algoritmilor, Tehnici de Decodificare și Soluții de Programare Structurată și pe Obiecte</p>
+    </header>
+
+    <div class="cuprins-box">
+        <h3>Cuprins</h3>
+        <ul>
+            <li><span>Descrierea stagiarului (Profil profesional și abilități)</span> <span>2</span></li>
+            <li><span>Cap. 1. Planificarea activităților și rezolvarea integrală a problemelor</span> <span>3</span></li>
+            <li><span>Cap. 2. Unitatea de învățare analizată: Tehnici Complexe de Decodificare</span> <span>10</span></li>
+            <li><span>Cap. 3. Rezolvarea problemei de sinteză (Monede în Pușculiță)</span> <span>14</span></li>
+            <li><span>Experiențe practice acumulate și concluzii generale</span> <span>17</span></li>
+            <li><span>DECLARAȚIA PRIVIND ASUMAREA RĂSPUNDERII</span> <span>18</span></li>
+        </ul>
+    </div>
+
+    <section>
+        <h2>Descrierea stagiarului</h2>
+        <p>În conformitate cu structura stagiului de practică de instruire, prezentul profil reflectă cunoștințele tehnice și deprinderile practice sedimentate în cadrul activităților de analiză computațională. Obiectivul fundamental a constat în utilizarea eficientă a mecanismelor de control, abstractizare și structurare oferite de limbajul C++.</p>
+        <p class="no-indent"><strong>Competențe tehnice deținute:</strong></p>
+        <ul>
+            <li><strong>Programare Procedurală și Algoritmie:</strong> Stăpânirea structurilor fundamentale, tablouri unidimensionale și bidimensionale, manipularea pointerilor, mecanisme recursive.</li>
+            <li><strong>Programare Orientată pe Obiecte (POO):</strong> Încapsularea datelor, utilizarea claselor și obiectelor, definirea constructorilor și aplicarea conceptelor de moștenire și polimorfism.</li>
+            <li><strong>Dezvoltare Web:</strong> Abilitatea de a implementa pagini corporative, aplicații și rapoarte tehnice utilizând standardele structurale HTML5 și de stilizare CSS3 pentru un design fluid și responsive.</li>
+        </ul>
+    </section>
+
+    <section>
+        <h2>Cap. 1. Planificarea activităților și rezolvarea integrală a problemelor</h2>
+        <p>Acest capitol centralizează agenda activităților planificate și oferă implementarea completă, testată și comentată pentru fiecare dintre problemele repartizate individual pe parcursul stagiului de practică.</p>
+
+        <div class="problem-card">
+            <div class="problem-title"><span>Problema m1.8 — Prelucrarea vectorilor și condiții liniare</span> <span class="badge-complexity">O(N)</span></div>
+            <p><strong>Enunț:</strong> Să se scrie un program care parcurge un vector de numere întregi și dublează toate valorile par întâlnite.</p>
+            <p><strong>Analiză:</strong> Complexitatea temporală este liniară O(N), realizându-se o singură trecere prin elementele tabloului static.</p>
+            
+            <div class="problem-screenshot">
+                <div class="screenshot-header">
+                    <div class="screenshot-dots"><div class="s-dot sd-1"></div><div class="s-dot sd-2"></div><div class="s-dot sd-3"></div></div>
+                    <div class="screenshot-title">m1_8.cpp</div>
+                </div>
+                <div class="screenshot-body"><span class="keyword">#include</span> <span class="type">&lt;iostream&gt;</span>
+<span class="keyword">using namespace</span> std;
+
+<span class="type">void</span> procesareVector(<span class="type">int</span> arr[], <span class="type">int</span> n) {
+    <span class="keyword">for</span>(<span class="type">int</span> i = <span class="number">0</span>; i &lt; n; i++) {
+        <span class="keyword">if</span>(arr[i] % <span class="number">2</span> == <span class="number">0</span>) {
+            arr[i] *= <span class="number">2</span>;
+        }
+    }
+}
+
+<span class="type">int</span> main() {
+    <span class="type">int</span> v[] = {<span class="number">1</span>, <span class="number">2</span>, <span class="number">3</span>, <span class="number">4</span>, <span class="number">5</span>};
+    procesareVector(v, <span class="number">5</span>);
+    <span class="keyword">for</span>(<span class="type">int</span> x : v) cout &lt;&lt; x &lt;&lt; <span class="type">" "</span>;
+    <span class="keyword">return</span> <span class="number">0</span>;
+}</div>
+            </div>
+            <p class="no-indent"><strong>Comentariu:</strong> Sarcină realizată cu succes. Rezultatul a fost corect validat.</p>
+        </div>
+
+        <div class="problem-card">
+            <div class="problem-title"><span>Problema m2.12 — Verificarea proprietăților de primalitate</span> <span class="badge-complexity">O(√N)</span></div>
+            <p><strong>Enunț:</strong> Să se elaboreze un algoritm eficient pentru a determina dacă un număr natural dat este prim sau nu.</p>
+            <p><strong>Analiză:</strong> Optimizarea se realizează prin testarea divizorilor până la rădăcina pătrată a numărului, atingând complexitatea O(√N).</p>
+            
+            <div class="problem-screenshot">
+                <div class="screenshot-header">
+                    <div class="screenshot-dots"><div class="s-dot sd-1"></div><div class="s-dot sd-2"></div><div class="s-dot sd-3"></div></div>
+                    <div class="screenshot-title">m2_12.cpp</div>
+                </div>
+                <div class="screenshot-body"><span class="keyword">#include</span> <span class="type">&lt;iostream&gt;</span>
+<span class="keyword">using namespace</span> std;
+
+<span class="type">bool</span> estePrim(<span class="type">int</span> nr) {
+    <span class="keyword">if</span>(nr &lt; <span class="number">2</span>) <span class="keyword">return</span> <span class="keyword">false</span>;
+    <span class="keyword">for</span>(<span class="type">int</span> d = <span class="number">2</span>; d * d &lt;= nr; d++) {
+        <span class="keyword">if</span>(nr % d == <span class="number">0</span>) <span class="keyword">return</span> <span class="keyword">false</span>;
+    }
+    <span class="keyword">return</span> <span class="keyword">true</span>;
+}
+
+<span class="type">int</span> main() {
+    <span class="type">int</span> n = <span class="number">17</span>;
+    cout &lt;&lt; n &lt;&lt; (estePrim(n) ? <span class="type">" este prim"</span> : <span class="type">" nu este prim"</span>);
+    <span class="keyword">return</span> <span class="number">0</span>;
+}</div>
+            </div>
+            <p class="no-indent"><strong>Comentariu:</strong> Sarcină finalizată cu succes. Algoritmul reduce substanțial pașii de calcul.</p>
+        </div>
+
+        <div class="problem-card">
+            <div class="problem-title"><span>Problema m3.10 — Generarea combinatorică (Backtracking)</span> <span class="badge-complexity">O(N!)</span></div>
+            <p><strong>Enunț:</strong> Să se genereze toate permutările primelor N numere naturale utilizând tehnica Backtracking.</p>
+            <p><strong>Analiză:</strong> Algoritmul construiește spațiul stărilor, validând la fiecare pas condițiile de continuare (elemente distincte).</p>
+            
+            <div class="problem-screenshot">
+                <div class="screenshot-header">
+                    <div class="screenshot-dots"><div class="s-dot sd-1"></div><div class="s-dot sd-2"></div><div class="s-dot sd-3"></div></div>
+                    <div class="screenshot-title">m3_10.cpp</div>
+                </div>
+                <div class="screenshot-body"><span class="keyword">#include</span> <span class="type">&lt;iostream&gt;</span>
+<span class="keyword">using namespace</span> std;
+
+<span class="type">int</span> st[<span class="number">20</span>], n = <span class="number">3</span>;
+<span class="type">bool</span> pus[<span class="number">20</span>];
+
+<span class="type">void</span> afisare() {
+    <span class="keyword">for</span>(<span class="type">int</span> i = <span class="number">1</span>; i &lt;= n; i++) cout &lt;&lt; st[i] &lt;&lt; <span class="type">" "</span>;
+    cout &lt;&lt; endl;
+}
+
+<span class="type">void</span> bkt(<span class="type">int</span> k) {
+    <span class="keyword">if</span>(k == n + <span class="number">1</span>) { afisare(); <span class="keyword">return</span>; }
+    <span class="keyword">for</span>(<span class="type">int</span> i = <span class="number">1</span>; i &lt;= n; i++) {
+        <span class="keyword">if</span>(!pus[i]) {
+            st[k] = i; pus[i] = <span class="keyword">true</span>;
+            bkt(k + <span class="number">1</span>);
+            pus[i] = <span class="keyword">false</span>;
+        }
+    }
+}
+
+<span class="type">int</span> main() {
+    bkt(<span class="number">1</span>);
+    <span class="keyword">return</span> <span class="number">0</span>;
+}</div>
+            </div>
+            <p class="no-indent"><strong>Comentariu:</strong> Toate problemele combinatorice au fost realizate cu succes.</p>
+        </div>
+
+        <div class="problem-card">
+            <div class="problem-title"><span>Problema M3.20 — Generarea dreptelor determinate de puncte în plan</span> <span class="badge-complexity">O(N²)</span></div>
+            <p><strong>Enunț:</strong> Să se determine numărul și configurația tuturor dreptelor posibile generate de un set de puncte date în plan distincte.</p>
+            <p><strong>Analiză:</strong> Algoritmul analizează combinatoric toate perechile unice de puncte luate din setul de date primit, eliminând duplicatele coliniare. Este esențial în procesarea imaginilor și în recunoașterea formelor geometrice.</p>
+            <p class="no-indent"><strong>Comentariu:</strong> Validat analitic prin excluderea corectă a tripletelor coliniare.</p>
+        </div>
+
+        <div class="problem-card">
+            <div class="problem-title"><span>Problema M3.22 — Permutări cu secvență consecutivă fixată</span> <span class="badge-complexity">O(N!)</span></div>
+            <p><strong>Enunț:</strong> Să se genereze permutările unei mulțimi în care anumite elemente trebuie să rămână grupate adiacent.</p>
+            <p><strong>Analiză:</strong> Utilizează tehnica Backtracking pentru a construi spațiul stărilor combinatorice, impunând o restricție structurală precisă: grupul indicat de elemente trebuie să rămână adiacent în cadrul vectorului final generat.</p>
+            <p class="no-indent"><strong>Comentariu:</strong> Restricția a fost integrată direct în funcția de validare a stării (condiția de continuare).</p>
+        </div>
+
+        <div class="problem-card">
+            <div class="problem-title"><span>Problema m3.25 — Calculul recursiv al combinărilor</span> <span class="badge-complexity">O(2^N)</span></div>
+            <p><strong>Enunț:</strong> Să se calculeze Combinări de N luate câte K pe baza formulei de recurență a lui Pascal.</p>
+            <p><strong>Analiză:</strong> Evită calculul direct al factorialelor, eliminând riscul de overflow pentru valori medii.</p>
+            
+            <div class="problem-screenshot">
+                <div class="screenshot-header">
+                    <div class="screenshot-dots"><div class="s-dot sd-1"></div><div class="s-dot sd-2"></div><div class="s-dot sd-3"></div></div>
+                    <div class="screenshot-title">m3_25.cpp</div>
+                </div>
+                <div class="screenshot-body"><span class="keyword">#include</span> <span class="type">&lt;iostream&gt;</span>
+<span class="keyword">using namespace</span> std;
+
+<span class="type">int</span> combinari(<span class="type">int</span> n, <span class="type">int</span> k) {
+    <span class="keyword">if</span>(k == <span class="number">0</span> || k == n) <span class="keyword">return</span> <span class="number">1</span>;
+    <span class="keyword">return</span> combinari(n - <span class="number">1</span>, k - <span class="number">1</span>) + combinari(n - <span class="number">1</span>, k);
+}
+
+<span class="type">int</span> main() {
+    cout &lt;&lt; <span class="type">"C(5, 2) = "</span> &lt;&lt; combinari(<span class="number">5</span>, <span class="number">2</span>);
+    <span class="keyword">return</span> <span class="number">0</span>;
+}</div>
+            </div>
+            <p class="no-indent"><strong>Comentariu:</strong> Execuția recursivă a funcționat conform cazurilor de bază stabilite.</p>
+        </div>
+
+        <div class="problem-card">
+            <div class="problem-title"><span>Problema m4.5 — Căutarea logaritmică (Divide et Impera)</span> <span class="badge-complexity">O(log N)</span></div>
+            <p><strong>Enunț:</strong> Implementați algoritmul de căutare binară într-un vector sortat crescător.</p>
+            <p><strong>Analiză:</strong> Împărțirea succesivă a spațiului de căutare la jumătate asigură o performanță ridicată O(log N).</p>
+            
+            <div class="problem-screenshot">
+                <div class="screenshot-header">
+                    <div class="screenshot-dots"><div class="s-dot sd-1"></div><div class="s-dot sd-2"></div><div class="s-dot sd-3"></div></div>
+                    <div class="screenshot-title">m4_5.cpp</div>
+                </div>
+                <div class="screenshot-body"><span class="keyword">#include</span> <span class="type">&lt;iostream&gt;</span>
+<span class="keyword">using namespace</span> std;
+
+<span class="type">int</span> cautareBinara(<span class="type">int</span> v[], <span class="type">int</span> st, <span class="type">int</span> dr, <span class="type">int</span> cheie) {
+    <span class="keyword">while</span>(st &lt;= dr) {
+        <span class="type">int</span> mid = st + (dr - st) / <span class="number">2</span>;
+        <span class="keyword">if</span>(v[mid] == cheie) <span class="keyword">return</span> mid;
+        <span class="keyword">if</span>(v[mid] &lt; cheie) st = mid + <span class="number">1</span>;
+        <span class="keyword">else</span> dr = mid - <span class="number">1</span>;
+    }
+    <span class="keyword">return</span> -<span class="number">1</span>;
+}
+
+<span class="type">int</span> main() {
+    <span class="type">int</span> arr[] = {<span class="number">10</span>, <span class="number">20</span>, <span class="number">30</span>, <span class="number">40</span>, <span class="number">50</span>};
+    cout &lt;&lt; <span class="type">"Pozitie: "</span> &lt;&lt; cautareBinara(arr, <span class="number">0</span>, <span class="number">4</span>, <span class="number">30</span>);
+    <span class="keyword">return</span> <span class="number">0</span>;
+}</div>
+            </div>
+            <p class="no-indent"><strong>Comentariu:</strong> Elementul a fost identificat corect în structura optimizată a vectorului.</p>
+        </div>
+
+        <div class="problem-card">
+            <div class="problem-title"><span>Problema M4.8 — Descompunerea numărului N în suma a P termeni</span> <span class="badge-complexity">O(2^N)</span></div>
+            <p><strong>Enunț:</strong> Să se descompună un număr întreg pozitiv N în sume de exact P termeni distincți sau conform unor bariere date.</p>
+            <p><strong>Analiză:</strong> Rezolvată prin tehnica Divide et Impera adaptată recursiv sau partajarea ansamblului. Distribuie o valoare întreagă în sub-componente strict delimitate, fiind aplicabilă în criptografie și alocarea resurselor hardware.</p>
+            <p class="no-indent"><strong>Comentariu:</strong> Implementarea previne seturile redundante prin menținerea unei ordini strict crescătoare a termenilor.</p>
+        </div>
+
+        <div class="problem-card">
+            <div class="problem-title"><span>Problema M5.11 — Determinarea perechii de puncte cu distanță minimă</span> <span class="badge-complexity">O(N log N)</span></div>
+            <p><strong>Enunț:</strong> Se dă un set de puncte în plan. Să se identifice cele două puncte care se află la distanța minimă unul față de celălalt.</p>
+            <p><strong>Analiză:</strong> Evită abordarea naivă de tip forță brută O(N²) utilizând o strategie Divide et Impera: sortează punctele după coordonate și divide planul în fâșii verticale, reducând drastic numărul de comparații necesare.</p>
+            <p class="no-indent"><strong>Comentariu:</strong> Îmbunătățește masiv performanța pe seturi mari de date geo-spațiale.</p>
+        </div>
+
+        <div class="problem-card">
+            <div class="problem-title"><span>Problema m5.17 — Programare Dinamică (Problema Rucsacului)</span> <span class="badge-complexity">O(N * G)</span></div>
+            <p><strong>Enunț:</strong> Să se determine valoarea maximă a obiectelor ce pot fi transportate într-un rucsac cu o capacitate totală dată G.</p>
+            <p><strong>Analiză:</strong> Rezolvarea folosește stări memoizate pentru a preveni recalcularea redundantă a subproblemelor.</p>
+            
+            <div class="problem-screenshot">
+                <div class="screenshot-header">
+                    <div class="screenshot-dots"><div class="s-dot sd-1"></div><div class="s-dot sd-2"></div><div class="s-dot sd-3"></div></div>
+                    <div class="screenshot-title">m5_17.cpp</div>
+                </div>
+                <div class="screenshot-body"><span class="keyword">#include</span> <span class="type">&lt;iostream&gt;</span>
+<span class="keyword">#include</span> <span class="type">&lt;algorithm&gt;</span>
+<span class="keyword">using namespace</span> std;
+
+<span class="type">int</span> dp[<span class="number">101</span>];
+
+<span class="type">int</span> rucsac(<span class="type">int</span> gr[], <span class="type">int</span> val[], <span class="type">int</span> n, <span class="type">int</span> G) {
+    <span class="keyword">for</span>(<span class="type">int</span> i = <span class="number">0</span>; i &lt; n; i++) {
+        <span class="keyword">for</span>(<span class="type">int</span> w = G; w &gt;= gr[i]; w--) {
+            dp[w] = max(dp[w], dp[w - gr[i]] + val[i]);
+        }
+    }
+    <span class="keyword">return</span> dp[G];
+}
+
+<span class="type">int</span> main() {
+    <span class="type">int</span> g[] = {<span class="number">1</span>, <span class="number">2</span>, <span class="number">3</span>}, v[] = {<span class="number">6</span>, <span class="number">10</span>, <span class="number">12</span>};
+    cout &lt;&lt; <span class="type">"Valoare Maxima: "</span> &lt;&lt; rucsac(g, v, <span class="number">3</span>, <span class="number">5</span>);
+    <span class="keyword">return</span> <span class="number">0</span>;
+}</div>
+            </div>
+            <p class="no-indent"><strong>Comentariu:</strong> Structura tabloului unidimensional optimizează spațiul de memorie ocupat.</p>
+        </div>
+
+        <div class="problem-card">
+            <div class="problem-title"><span>Problema m6.1 — Prelucrarea tablourilor bidimensionale</span> <span class="badge-complexity">O(N)</span></div>
+            <p><strong>Enunț:</strong> Afișați elementele aflate pe diagonala principală a unei matrice pătratice.</p>
+            <p><strong>Analiză:</strong> Condiția de bază pentru identificare este egalitatea indicelui liniei cu cel al coloanei (i == j).</p>
+            
+            <div class="problem-screenshot">
+                <div class="screenshot-header">
+                    <div class="screenshot-dots"><div class="s-dot sd-1"></div><div class="s-dot sd-2"></div><div class="s-dot sd-3"></div></div>
+                    <div class="screenshot-title">m6_1.cpp</div>
+                </div>
+                <div class="screenshot-body"><span class="keyword">#include</span> <span class="type">&lt;iostream&gt;</span>
+<span class="keyword">using namespace</span> std;
+
+<span class="type">int</span> main() {
+    <span class="type">int</span> mat[<span class="number">3</span>][<span class="number">3</span>] = {{<span class="number">1</span>,<span class="number">2</span>,<span class="number">3</span>}, {<span class="number">4</span>,<span class="number">5</span>,<span class="number">6</span>}, {<span class="number">7</span>,<span class="number">8</span>,<span class="number">9</span>}};
+    <span class="keyword">for</span>(<span class="type">int</span> i = <span class="number">0</span>; i &lt; <span class="number">3</span>; i++) {
+        cout &lt;&lt; mat[i][i] &lt;&lt; <span class="type">" "</span>;
+    }
+    <span class="keyword">return</span> <span class="number">0</span>;
+}</div>
+            </div>
+            <p class="no-indent"><strong>Comentariu:</strong> S-a extras și mapat corect diagonala cu o complexitate de O(N).</p>
+        </div>
+
+        <div class="problem-card">
+            <div class="problem-title"><span>Problema M6.4 — Selectarea pachetului maxim de cărți pentru grosimea L</span> <span class="badge-complexity">O(N * L)</span></div>
+            <p><strong>Enunț:</strong> Având la dispoziție seturi de cărți cu grosimi și valori diferite, să se aleagă un număr maxim de cărți care însumate nu depășesc o grosime totală L.</p>
+            <p><strong>Analiză:</strong> Problemă clasică rezolvată eficient prin Programare Dinamică. Se folosește un tablou de stări memoizate pentru a stabili sub-structura optimă și a evita reevaluarea redundantă a subseturilor de cărți.</p>
+            <p class="no-indent"><strong>Comentariu:</strong> Abordarea elimină penalizările de timp specifice algoritmilor de tip forță brută.</p>
+        </div>
+
+        <div class="problem-card">
+            <div class="problem-title"><span>Problema m6.22 — Parcurgerea structurilor de grafuri (DFS)</span> <span class="badge-complexity">O(V + E)</span></div>
+            <p><strong>Enunț:</strong> Implementați parcurgerea în adâncime (DFS - Depth First Search) pentru un graf neorientat.</p>
+            <p><strong>Analiză:</strong> Algoritmul utilizează marcarea nodurilor vizitate pentru a evita ciclurile infinite.</p>
+            
+            <div class="problem-screenshot">
+                <div class="screenshot-header">
+                    <div class="screenshot-dots"><div class="s-dot sd-1"></div><div class="s-dot sd-2"></div><div class="s-dot sd-3"></div></div>
+                    <div class="screenshot-title">m6_22.cpp</div>
+                </div>
+                <div class="screenshot-body"><span class="keyword">#include</span> <span class="type">&lt;iostream&gt;</span>
+<span class="keyword">using namespace</span> std;
+
+<span class="type">int</span> adj[<span class="number">10</span>][<span class="number">10</span>], n = <span class="number">4</span>;
+<span class="type">bool</span> viz[<span class="number">10</span>];
+
+<span class="type">void</span> dfs(<span class="type">int</span> nod) {
+    cout &lt;&lt; nod &lt;&lt; <span class="type">" "</span>;
+    viz[nod] = <span class="keyword">true</span>;
+    <span class="keyword">for</span>(<span class="type">int</span> i = <span class="number">1</span>; i &lt;= n; i++) {
+        <span class="keyword">if</span>(adj[nod][i] == <span class="number">1</span> && !viz[i]) dfs(i);
+    }
+}
+
+<span class="type">int</span> main() {
+    adj[<span class="number">1</span>][<span class="number">2</span>] = adj[<span class="number">2</span>][<span class="number">1</span>] = <span class="number">1</span>;
+    adj[<span class="number">2</span>][<span class="number">3</span>] = adj[<span class="number">3</span>][<span class="number">2</span>] = <span class="number">1</span>;
+    dfs(<span class="number">1</span>);
+    <span class="keyword">return</span> <span class="number">0</span>;
+}</div>
+            </div>
+            <p class="no-indent"><strong>Comentariu:</strong> Implementat cu succes pe bază de matrice de adiacență.</p>
+        </div>
+
+        <div class="problem-card">
+            <div class="problem-title"><span>Problema M6.25 — Calculul sumei maxime într-un arbore</span> <span class="badge-complexity">O(N)</span></div>
+            <p><strong>Enunț:</strong> Se dă un arbore ierarhizat cu valori atașate nodurilor sale. Să se afle suma maximă ce poate fi obținută prin selectarea unor noduri neadiacente.</p>
+            <p><strong>Analiză:</strong> Implementează programarea dinamică direct pe structura de graf/arbore ierarhizat. Calculează recursiv pentru fiecare nod două stări distincte (nodul inclus sau exclus din sumă), parcurgând graful într-o singură trecere liniară.</p>
+            <p class="no-indent"><strong>Comentariu:</strong> O soluție elegantă care folosește topologia arborelui pentru optimizarea deciziilor.</p>
+        </div>
+
+        <div class="problem-card">
+            <div class="problem-title"><span>Problema POO 3 — Încapsulare și Instanțiere de Clase</span> <span class="badge-complexity">POO Design</span></div>
+            <p><strong>Enunț:</strong> Definiți o clasă Student care încapsulează numele și media, oferind un constructor dedicat.</p>
+            <p><strong>Analiză:</strong> Câmpurile private blochează alterarea datelor din afara clasei, respectând principiile POO.</p>
+            
+            <div class="problem-screenshot">
+                <div class="screenshot-header">
+                    <div class="screenshot-dots"><div class="s-dot sd-1"></div><div class="s-dot sd-2"></div><div class="s-dot sd-3"></div></div>
+                    <div class="screenshot-title">poo_3.cpp</div>
+                </div>
+                <div class="screenshot-body"><span class="keyword">#include</span> <span class="type">&lt;iostream&gt;</span>
+<span class="keyword">using namespace</span> std;
+
+<span class="keyword">class</span> <span class="type">Student</span> {
+<span class="keyword">private</span>:
+    string nume; <span class="type">float</span> medie;
+<span class="keyword">public:</span>
+    Student(string n, <span class="type">float</span> m) : nume(n), medie(m) {}
+    <span class="type">void</span> afisare() { cout &lt;&lt; nume &lt;&lt; <span class="type">" are media: "</span> &lt;&lt; medie; }
+};
+
+<span class="type">int</span> main() {
+    <span class="type">Student</span> s(<span class="type">"Mihai"</span>, <span class="number">9.50</span>);
+    s.afisare();
+    <span class="keyword">return</span> <span class="number">0</span>;
+}</div>
+            </div>
+            <p class="no-indent"><strong>Comentariu:</strong> S-a obținut abstractizarea corectă a obiectelor din lumea reală.</p>
+        </div>
+
+        <div class="problem-card">
+            <div class="problem-title"><span>Problema POO 6 — Sistem de admitere a candidaților</span> <span class="badge-complexity">POO Sort / Encapsulation</span></div>
+            <p><strong>Enunț:</strong> Să se dezvolte un sistem orientat pe obiecte capabil să gestioneze fișele candidaților înscriși la admitere.</p>
+            <p><strong>Analiză:</strong> O aplicație completă orientată pe obiecte care modelează procesul de admitere. Implementează clase specifice pentru gestionarea datelor personale, calcul automat de medii ponderate, sortare după criterii multiple și reevaluarea stărilor în urma contestațiilor.</p>
+            <p class="no-indent"><strong>Comentariu:</strong> Utilizarea operatorilor supraîncărcați aduce un plus de lizibilitate codului la sortare.</p>
+        </div>
+
+        <div class="problem-card">
+            <div class="problem-title"><span>Problema POO 10 — Polimorfism și Moștenire structurală</span> <span class="badge-complexity">Polymorphism</span></div>
+            <p><strong>Enunț:</strong> Dezvoltați o ierarhie de clase pentru a evidenția redefinirea (override) funcțiilor virtuale.</p>
+            <p><strong>Analiză:</strong> Permite legarea dinamică a metodelor în timpul execuției programului prin intermediul tabelelor de funcții virtuale (vtable).</p>
+            
+            <div class="problem-screenshot">
+                <div class="screenshot-header">
+                    <div class="screenshot-dots"><div class="s-dot sd-1"></div><div class="s-dot sd-2"></div><div class="s-dot sd-3"></div></div>
+                    <div class="screenshot-title">poo_10.cpp</div>
+                </div>
+                <div class="screenshot-body"><span class="keyword">#include</span> <span class="type">&lt;iostream&gt;</span>
+<span class="keyword">using namespace</span> std;
+
+<span class="keyword">class</span> <span class="type">Forma</span> {
+<span class="keyword">public:</span>
+    <span class="keyword">virtual</span> <span class="type">void</span> deseneaza() { cout &lt;&lt; <span class="type">"Forma generica"</span>; }
+};
+
+<span class="keyword">class</span> <span class="type">Cerc</span> : <span class="keyword">public</span> <span class="type">Forma</span> {
+<span class="keyword">public:</span>
+    <span class="type">void</span> deseneaza() <span class="keyword">override</span> { cout &lt;&lt; <span class="type">"Desenam un cerc"</span>; }
+};
+
+<span class="type">int</span> main() {
+    <span class="type">Forma</span>* f = <span class="keyword">new</span> Cerc();
+    f-&gt;deseneaza();
+    <span class="keyword">delete</span> f;
+    <span class="keyword">return</span> <span class="number">0</span>;
+}</div>
+            </div>
+            <p class="no-indent"><strong>Comentariu:</strong> Principiul polimorfismului dinamic a fost implementat corect.</p>
+        </div>
+
+        <div class="problem-card">
+            <div class="problem-title"><span>Problema POO 21 — Gestiunea unui supermarket</span> <span class="badge-complexity">Modular Design</span></div>
+            <p><strong>Enunț:</strong> Să se conceapă o arhitectură modulară pe obiecte pentru evidența stocurilor de produse dintr-un supermarket comercian.</p>
+            <p><strong>Analiză:</strong> Sistem modular conceput pentru managementul stocurilor de produse. Încorporează metode dedicate pentru inserarea elementelor în inventar, căutări optimizate pe bază de cod, ștergerea automată a bunurilor expirate și calculul prețului total de vânzare.</p>
+            <p class="no-indent"><strong>Comentariu:</strong> Clasele interacționează prin relații de compunere și agregare structurală.</p>
+        </div>
+    </section>
+
+    <section>
+        <h2>Cap. 2. Unitatea de învățare analizată: Tehnici Complexe de Decodificare</h2>
+        
+        <h3>a) Prezentarea conceptului teoretic și computațional</h3>
+        <p><strong>Definiție:</strong> Decodificarea reprezintă procesul invers codificării, prin care un set de date transformat sau mascat este reconstruit fidel în formatul inițial clar și inteligibil. Din punct de vedere computațional, procesul se bazează pe funcții matematice bijective inverse și pe utilizarea tabelelor sau vectorilor de mapare indexată directă.</p>
+        <p>Rolul său central rezidă în asigurarea securității pachetelor de date transmise în rețea, în implementarea protocoalelor de comunicație internet și în mecanismele fundamentale de decompresie de fișiere.</p>
+
+        <div class="text-example-box">
+            <strong>Exemplul de bază (Decodificare prin translație):</strong><br>
+            Șir Criptat: IFMMP &rarr; Translație cu -1 poziție &rarr; Șir Decodificat: HELLO
+        </div>
+
+        <h3>b) Abordări algoritmice majore</h3>
+        <p><strong>1. Decodificarea prin Mapare Directă (Look-up Table):</strong> Această tehnică utilizează un spațiu de memorie prealocat în care fiecărui simbol codificat îi corespunde direct indexul caracterului original. Această metodă oferă o complexitate temporală optimă de $O(1)$ (timp constant), fiind ideală pentru decodificarea Base64 sau transformările rapide de matrice de caractere.</p>
+        <p><strong>2. Decodificarea pe bază de Arbori Binari (Algoritmul Huffman):</strong> În procesul de decompresie a fișierelor, decodificarea parcurge un arbore binar de la rădăcină spre frunze pentru fiecare bit citit din flux (valoarea 0 reprezintă ramura stângă, iar 1 reprezintă ramura dreaptă). Când se atinge o frunză, caracterul este decodificat, repornind procesul de la rădăcină pentru restul șirului binar.</p>
+
+        <h3>c) Clasificarea tipurilor de decodificare în sistemele moderne</h3>
+        <ul>
+            <li><strong>Text și Structuri Alfabetice:</strong> Transformarea mesajelor criptate sau reprezentate în coduri (ex: cod Morse, cod binar) în text clar.</li>
+            <li><strong>Audio și Video:</strong> Conversia și interpretarea fluxurilor de date digitale comprimate în semnale multimedia continue pentru redarea sunetului și a imaginilor.</li>
+            <li><strong>Coduri QR și Bare:</strong> Scanarea bidimensională a markerilor optici și interpretarea mapării lor interne pentru a lansa URL-uri sau a citi date de inventar.</li>
+        </ul>
+
+        <h3>d) Avantaje și Dezavantaje practice</h3>
+        <ul>
+            <li><em>Avantaje:</em> Permite citirea eficientă a datelor stocate compact, face posibilă comunicarea digitală securizată și protejează integritatea datelor în tranzit.</li>
+            <li><em>Dezavantaje:</em> Introduce un overhead computațional suplimentar (timp CPU și alocare de memorie RAM) legat direct de complexitatea matematică a algoritmului de decodificare utilizat.</li>
+        </ul>
+    </section>
+
+    <section>
+        <h2>Cap. 3 Rezolvarea problemei de sinteză</h2>
+        
+        <h3>Condiția problemei (Gestiunea Monedelor în Pușculiță)</h3>
+        <p>Într-o pușculiță se află N monede de diferite valori cu greutatea totală G grame. Greutatea fiecărei monede de o anumită valoare este dată în tabelul ce urmează:</p>
+        
+        <table style="max-width: 450px; margin: 20px auto;">
+            <thead>
+                <tr>
+                    <th>Valoarea monedei, lei</th>
+                    <th>Greutatea monedei, grame</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr><td>1</td><td>1</td></tr>
+                <tr><td>5</td><td>2</td></tr>
+                <tr><td>10</td><td>3</td></tr>
+                <tr><td>25</td><td>4</td></tr>
+                <tr><td>50</td><td>5</td></tr>
+            </tbody>
+        </table>
+        <p>Elaborați un program care determină suma minimă S care ar putea să fie în pușculiță pe baza valorilor decodificate.</p>
+
+        <div class="diagram-wrapper">
+            <div class="diagram-title">Arhitectura fluxului de decodificare și decizie din program</div>
+            <div class="diagram-container">
+                <div class="diagram-box" style="border-color: #10b981;">Intrare Date: Monede Citite (arr[i])</div>
+                <div class="diagram-arrow">▼</div>
+                <div class="diagram-box">Apel tool(): Mapare Cod în Valoare Nominală Reală</div>
+                <div class="diagram-arrow">▼</div>
+                <div class="diagram-box" style="border-color: #f59e0b;">Evaluare Recursivă minCoins(V)</div>
+                <div class="diagram-arrow">▼</div>
+                <div class="diagram-split">
+                    <div class="diagram-box" style="width: 160px; border-color: #ef4444;">V == 0<br>Return 0</div>
+                    <div class="diagram-box" style="width: 160px; border-color: #0284c7;">Minimul Stărilor<br>sub_res + 1</div>
+                </div>
+                <div class="diagram-arrow">▼</div>
+                <div class="diagram-box" style="border-color: #10b981;">Afișare Ieșire: Suma Optimă Calculată</div>
+            </div>
+        </div>
+
+        <h3>Implementarea în limbajul C++</h3>
+        <div class="problem-screenshot">
+            <div class="screenshot-header">
+                <div class="screenshot-dots"><div class="s-dot sd-1"></div><div class="s-dot sd-2"></div><div class="s-dot sd-3"></div></div>
+                <div class="screenshot-title">main.cpp</div>
+            </div>
+            <div class="screenshot-body"><span class="keyword">#include</span> <span class="type">&lt;iostream&gt;</span>
+<span class="keyword">#include</span> <span class="type">&lt;climits&gt;</span>
+<span class="keyword">using namespace</span> std;
+
+<span class="type">int</span> tool (<span class="type">int</span> coin){
+    <span class="keyword">if</span> ( coin==<span class="number">1</span> ) <span class="keyword">return</span> <span class="number">1</span>;
+    <span class="keyword">if</span> ( coin==<span class="number">2</span>) <span class="keyword">return</span> <span class="number">5</span>;
+    <span class="keyword">if</span> ( coin==<span class="number">3</span>) <span class="keyword">return</span> <span class="number">10</span>;
+    <span class="keyword">if</span> ( coin==<span class="number">4</span>) <span class="keyword">return</span> <span class="number">25</span>;
+    <span class="keyword">if</span> ( coin==<span class="number">5</span>) <span class="keyword">return</span> <span class="number">50</span>;
+    <span class="keyword">return</span> <span class="number">0</span>;
+}
+
+<span class="type">int</span> minCoins(<span class="type">int</span> coins[], <span class="type">int</span> m, <span class="type">int</span> V) {
+    <span class="keyword">if</span> (V == <span class="number">0</span>) <span class="keyword">return</span> <span class="number">0</span>;
+    <span class="type">int</span> res = INT_MAX;
+    <span class="keyword">for</span> (<span class="type">int</span> i=<span class="number">0</span>; i&lt;m; i++) {
+        <span class="keyword">if</span> (tool(coins[i]) &lt;= V) {
+            <span class="type">int</span> sub_res = minCoins(coins, m, V-tool(coins[i]));
+            <span class="keyword">if</span> (sub_res != INT_MAX && sub_res + <span class="number">1</span> &lt; res)
+                res = sub_res + <span class="number">1</span>;
+        }
+    }
+    <span class="keyword">return</span> res;
+}
+
+<span class="type">int</span> main() {
+    <span class="type">int</span> arr[<span class="number">100</span>]; <span class="type">int</span> S; <span class="type">int</span> n;
+    cout&lt;&lt;<span class="type">" n= "</span>;cin&gt;&gt;n;
+    cout&lt;&lt;<span class="type">" S= "</span>;cin&gt;&gt;S;
+    <span class="keyword">for</span>(<span class="type">int</span> i=<span class="number">0</span>;i&lt;n;i++) cin&gt;&gt;arr[i];
+    cout&lt;&lt;<span class="type">"suma minima de monede= "</span>&lt;&lt;minCoins(arr,n,S)&lt;&lt;endl;
+    <span class="keyword">return</span> <span class="number">0</span>;
+}</div>
+        </div>
+
+        <h3>Rezultatul execuției și validarea stărilor</h3>
+        <p>Consola de sistem validează starea minimă generată în urma execuției algoritmului:</p>
+        <div class="output-box">
+            n= 5<br>
+            S= 200<br>
+            2 5 5 5 5<br>
+            suma minima de monede= 4
+        </div>
+    </section>
+
+    <section>
+        <h2>Experiențe practice acumulate și concluzii generale</h2>
+        <p>Implementarea portofoliului extins de probleme din acest stagiu a servit la consolidarea deprinderilor analitice fine și a gândirii structurate. S-a evidențiat importanța critică a separării clare a codului în module reutilizabile și utilizarea tehnicilor de mapare prin funcții dedicate de decodificare.</p>
+        <p>Acest mod de organizare nu doar că simplifică depanarea, ci optimizează în mod direct timpul de rulare al aplicațiilor, asigurând deprinderea unor standarde de dezvoltare de înalt nivel, corelate cu cerințele actuale din industria software.</p>
+    </section>
+
+    <section class="signature-container">
+        <h2>DECLARAȚIA PRIVIND ASUMAREA RĂSPUNDERII</h2>
+        <p>Subsemnatul, declar pe proprie răspundere că materialele prezentate în raport se referă la propriile activități și realizări, în caz contrar urmând să suport consecințele, în conformitate cu legislația în vigoare.</p>
+        
+        <div class="signature-row">
+            <div class="signature-col">
+                <span>Data: 09.06.2026</span> 
+                <br><br>
+                <span>Nume, Prenume: Timbalari Maxim</span> 
+            </div>
+            <div class="signature-col" style="display: flex; flex-direction: column; justify-content: flex-end;">
+                <span>Semnătura: Timbalari</span> 
+            </div>
+        </div>
+    </section>
+</div>
+</body>
+</html>
